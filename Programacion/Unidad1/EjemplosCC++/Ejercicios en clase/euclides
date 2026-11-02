@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main()
+{
+    int a = 0;
+    int b = 0;
+    float cociente = 0;
+    int residuo = 0;
+    printf("Ingrese el primer numero: ");
+    scanf("%d", &a);
+    printf("Ingrese el segundo numero: ");
+    scanf("%d", &b);
+    // proes
+    cociente = a / b;
+    residuo = a % b;
+    if (residuo == 0)
+    {
+        printf("El ma>imo divisor es: %d", cociente);
+        return;
+    }
+    else
+    {
+        cociente = a / b;
+        residuo = a % b;
+    }
+
+    // presentar
+    printf("El maximo divisor es: %d", cociente);
+    return;
+}

@@ -1,24 +1,29 @@
 #include <stdio.h>
-
+#define NOTAAPROBATORIA 60.0 // nota mínima final de aprobación
 int main()
 {
-    float c1, c2, c3, promcertamen, notafinal, notalaboratorio, notacertamen;
-    float factornotafinal = 0.7;
-    float factornotalaboratorio = 0.3;
-    // ingresar datos
-    printf("Ingrese la primera nota c1\n");
-    scanf("%f", &c1);
-    printf("Ingrese la primera nota c2\n");
-    scanf("%f", &c2);
-    printf("Ingrese la nota de laboratorio\n");
-    scanf("%f", &notalaboratorio);
-    // proceso
-    notacertamen = (60 - (notalaboratorio * factornotalaboratorio)) / 0.7;
-    c3 = (3 * notacertamen) - c1 - c2;
-    if (c3 < 0 && notacertamen <= -60)
+    float C1, C2, NotaLaboratorio, NotaCertamen, C3;
+    // Ingresar datos
+    printf("Ingrese la nota del certamen 1 (C1):\n");
+    scanf("%f", &C1);
+    printf("Ingrese la nota del certamen 2 (C2):\n");
+    scanf("%f", &C2);
+    printf("Ingrese la nota de laboratorio (NL):\n");
+    scanf("%f", &NotaLaboratorio);
+    // Proceso
+    // Calcular nc
+    NotaCertamen = (NOTAAPROBATORIA - (NotaLaboratorio * 0.3)) / 0.7;
+    // encontrar c3 despejando la formula
+    C3 = (3.0 * NotaCertamen) - C1 - C2;
+    // Presentar
+    printf("Resumen de Notas y Resultado \n");
+    printf("Nota Certamen 1: %.2f\n", C1);
+    printf("Nota Certamen 2: %.2f\n", C2);
+    printf("Nota Laboratorio: %.2f\n", NotaLaboratorio);
+    printf("Promedio de certamenes necesario (NC): %.2f\n", NotaCertamen);
+    printf("Calificacion minima requerida en C3: %.2f\n", C3);
+    if (C3 < 0)
     {
-        printf("Supera la nota minima para pasar el certamen su nota es %.2f", notacertamen);
+        printf("Cuenta con las notas suficiente para aprobar");
     }
-    else
-        printf("Nesesita sacar: %.2f en el tecer certamen para superar el minimo ", c3);
 }
